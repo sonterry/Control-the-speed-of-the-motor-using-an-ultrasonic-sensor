@@ -1,181 +1,7 @@
-/*
-
-int trig = 13;
-
-int echo = 12;
-
-int buzzer = 8;
-
-int LED = 3;
-
-float duration;
-
-float distance;
-
- 
-
-void setup() 
-
-{
-
-  Serial.begin(9600);
-
-  pinMode(echo,INPUT);
-
-  pinMode(trig,OUTPUT);
-
-  pinMode(buzzer,OUTPUT);
-
-  pinMode(LED, OUTPUT);
-
-}
-
- 
-
-void loop() 
-
-{
-
-  digitalWrite(trig,HIGH);
-
-  delay(10);
-
-  digitalWrite(trig,LOW);
-
-  duration = pulseIn(echo,HIGH);
-
-  distance = ((34000*duration)/1000000)/2;
-
-  Serial.print(distance);
-
-  Serial.println("cm");
-
- 
-
-  if(distance < 20)
-
-  {
-
-    analogWrite(LED,255-(distance*12));
-
-    
-
-    tone(buzzer,1000,100);
-
-    delay(100);
-
-    tone(buzzer,1000,100);
-
-    delay(100);
-
-  }
-
-  else
-
-  {
-
-    digitalWrite(LED,LOW);
-
-  }
-
-  
-
-  delay(100);
-
-}
-
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 unsigned int count=0;
-
 const int motor1=3;
-
 const int trigPin1=13; 
 const int echoPin1=12;
-
 int distance1=0;
 
 void setup() {
@@ -194,7 +20,6 @@ void setup() {
   TCCR0B |= (1<<CS02) | (1<<CS00);
   TIMSK0 |= (1<<OCIE0A);
 //  TIMSK0 |= (1 << OCIE0B) | (1<<OCIE0A);
-  
   sei();
 }
  
@@ -212,7 +37,6 @@ ISR(TIMER0_COMPA_vect){
     TCNT0=0;
     digitalWrite(trigPin1, HIGH);
   }
-  
   if(distance1/13<count) digitalWrite(motor1, HIGH);
   else digitalWrite(motor1, LOW);
 }
